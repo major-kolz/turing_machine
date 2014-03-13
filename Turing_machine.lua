@@ -6,7 +6,7 @@
 --		<ai>  = symbol, that machine will write at this position
 -- 	<cmd> = change position (move left, right or stay at this position)
 -- 	<qi>  = new state of machine
--- Machine start from rightmost symbol of parse string and in state q1 - field (1, n) in the table. 
+-- Machine start from rightmost symbol of parse string and in state q1 - field (n, 1) in the table. 
 -- Then, machine remove the symbol and write at that place symbol <ai> from word in field (1, n)
 -- Do <cmd> action and change its state to <qi>
 -- If state is equal to 0 -> stop machine
@@ -118,7 +118,7 @@ function save_TM ( TM_image, machines )
 	
 	newTM_file:write( TM_module_start .. TM_module_middle .. TM_module_end );
 	nameList:write( nam .. "\n" );
-
+  
 	--print( TM_module_start .. TM_module_middle .. TM_module_end );
 	
 	io.close( nameList );
@@ -141,7 +141,7 @@ function selectTM (  )
 	for i, nam in ipairs( ExistsMachine ) do
 		print(i .. '.', nam);
 	end
-	print(  "0.\t Create new with data from \"input.txt\"" );
+	print(  "0.\tCreate new with data from \"input.txt\"" );
 	
 	io.write "> ";
 	local choice = io.read();
